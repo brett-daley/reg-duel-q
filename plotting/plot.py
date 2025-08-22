@@ -13,6 +13,7 @@ import argparse
 
 import utils
 import os
+from matplotlib.patches import Patch
 
 
 def millions_formatter(x, pos):
@@ -79,6 +80,12 @@ if __name__ == '__main__':
     algorithms = ["dqn", "dueling_dqn", "rdq",]  # Algorithms to plot
     alg_names = {"dqn": 'DQN', "dueling_dqn": "Dueling DQN", "rdq": "Soft RDQ",} # needs to have elements for the things in algorithms
     alg_colors = {"dqn": '#7f8c8d', 'dueling_dqn': '#e67e22', 'rdq': "#8e44ad",}
+
+    legend_handles = [
+        Patch(facecolor=alg_colors[alg], edgecolor='none', label=alg_names[alg])
+        for alg in algorithms
+    ]
+
     if not os.path.exists('figs'):
         os.makedirs('figs')
     for env_num in range(len(env_directories)):
@@ -109,8 +116,8 @@ if __name__ == '__main__':
 
         plt.xticks(fontsize=15)
         plt.yticks(fontsize=15)
-        if True or env_num == 0:
-            plt.legend(loc='best', fontsize=18, frameon=False)
+        if 'Freeway' in env:
+            plt.legend(loc='best', fontsize=18, frameon=False, handles=legend_handles)
 
         plt.title(utils.insert_space_before_capital(env), fontsize=25)
 
