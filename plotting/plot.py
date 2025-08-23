@@ -119,7 +119,7 @@ if __name__ == '__main__':
         if 'Freeway' in env:
             plt.legend(loc='best', fontsize=18, frameon=False, handles=legend_handles)
 
-        plt.title(utils.insert_space_before_capital(env), fontsize=25)
+        plt.title(env, fontsize=25)
 
         fig_fname = 'figs/' + env + '_' + remove_spaces('Score') + '.pdf'
         plt.tight_layout()
