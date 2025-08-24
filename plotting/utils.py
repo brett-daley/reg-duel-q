@@ -22,15 +22,6 @@ def find_file(filename, directory):
             return os.path.join(root, filename)
     assert False
 
-def insert_space_before_capital(s):
-    result = s[0]  # Keep the first character as it is
-    for char in s[1:]:
-        if char.isupper():
-            result += ' ' + char
-        else:
-            result += char
-    return result
-
 
 def compute_z_score(confidence_level):
     assert 0 < confidence_level < 1, "unsupported confidence level"

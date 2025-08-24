@@ -1,8 +1,6 @@
 import argparse
 import os
 
-import utils
-
 import matplotlib
 matplotlib.use('Agg')  # Needed to run without X-server
 import matplotlib.pyplot as plt
