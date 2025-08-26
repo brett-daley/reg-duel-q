@@ -529,16 +529,16 @@ def main():
                 agent = agents[i]
                 plot_with_error(NUM_ACTIONS, np.array(y), np.array(y_conf), label=agent.NAME, color=agent.COLOR)
 
-                plt.xticks(NUM_ACTIONS)
-                plt.xlim([0, max(NUM_ACTIONS)])
-                plt.ylim([0, 100])
-                plt.legend(
-                    loc="upper left",
-                    handles=[
-                        Patch(facecolor=a.COLOR, edgecolor='none', label=a.NAME)
-                        for a in agents
-                    ],
-                )
+            plt.xticks(NUM_ACTIONS)
+            plt.xlim([0, max(NUM_ACTIONS)])
+            plt.ylim([0, 100])
+            plt.legend(
+                loc="upper left",
+                handles=[
+                    Patch(facecolor=a.COLOR, edgecolor='none', label=a.NAME)
+                    for a in agents
+                ],
+            )
 
         def save_and_close(name):
             assert name.endswith('.png') or path.endswith('.pdf')
